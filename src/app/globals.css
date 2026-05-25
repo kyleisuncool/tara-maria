@@ -22,10 +22,19 @@
   --font-body: var(--font-bitter);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: oklch(96% 0.018 82);
   color: oklch(20% 0.02 58);
   font-family: var(--font-bitter), Georgia, serif;
+}
+
+/* Offset anchor targets so sticky nav doesn't cover them */
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 @keyframes fade-up {

@@ -1,89 +1,230 @@
-function BotanicalSprig({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 160 480"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M80 475 C76 420 88 390 82 345 C76 300 90 268 83 225 C76 182 90 155 84 112 C78 68 86 40 82 8"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <ellipse cx="110" cy="405" rx="22" ry="9" transform="rotate(-32 110 405)" fill="currentColor" opacity="0.75" />
-      <ellipse cx="50" cy="396" rx="22" ry="9" transform="rotate(32 50 396)" fill="currentColor" opacity="0.75" />
-      <ellipse cx="112" cy="357" rx="20" ry="8" transform="rotate(-28 112 357)" fill="currentColor" opacity="0.70" />
-      <ellipse cx="48" cy="349" rx="20" ry="8" transform="rotate(28 48 349)" fill="currentColor" opacity="0.70" />
-      <ellipse cx="110" cy="308" rx="18" ry="7.5" transform="rotate(-24 110 308)" fill="currentColor" opacity="0.65" />
-      <ellipse cx="50" cy="302" rx="18" ry="7.5" transform="rotate(24 50 302)" fill="currentColor" opacity="0.65" />
-      <ellipse cx="108" cy="262" rx="16" ry="7" transform="rotate(-20 108 262)" fill="currentColor" opacity="0.60" />
-      <ellipse cx="52" cy="257" rx="16" ry="7" transform="rotate(20 52 257)" fill="currentColor" opacity="0.60" />
-      <ellipse cx="106" cy="218" rx="14" ry="6" transform="rotate(-16 106 218)" fill="currentColor" opacity="0.55" />
-      <ellipse cx="54" cy="213" rx="14" ry="6" transform="rotate(16 54 213)" fill="currentColor" opacity="0.55" />
-      <ellipse cx="104" cy="175" rx="12" ry="5.5" transform="rotate(-12 104 175)" fill="currentColor" opacity="0.50" />
-      <ellipse cx="56" cy="171" rx="12" ry="5.5" transform="rotate(12 56 171)" fill="currentColor" opacity="0.50" />
-      <ellipse cx="102" cy="136" rx="10" ry="5" transform="rotate(-8 102 136)" fill="currentColor" opacity="0.45" />
-      <ellipse cx="58" cy="132" rx="10" ry="5" transform="rotate(8 58 132)" fill="currentColor" opacity="0.45" />
-      <ellipse cx="99" cy="98" rx="8" ry="4" transform="rotate(-5 99 98)" fill="currentColor" opacity="0.40" />
-      <ellipse cx="61" cy="95" rx="8" ry="4" transform="rotate(5 61 95)" fill="currentColor" opacity="0.40" />
-      <circle cx="82" cy="30" r="4" fill="currentColor" opacity="0.45" />
-      <circle cx="74" cy="48" r="3" fill="currentColor" opacity="0.38" />
-      <circle cx="90" cy="50" r="3" fill="currentColor" opacity="0.38" />
-      <circle cx="77" cy="64" r="2.5" fill="currentColor" opacity="0.32" />
-      <circle cx="87" cy="67" r="2.5" fill="currentColor" opacity="0.32" />
-    </svg>
-  );
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+import BotanicalSprig from './components/BotanicalSprig'
+import Link from 'next/link'
+
+export const metadata = {
+  title: 'Tara-Maria — Healer',
+  description: 'Reiki, Akashic Readings, Sound Healing, and Hypnotherapy for women navigating burnout, recovery, and self-realization.',
 }
 
 export default function Home() {
   return (
-    <div className="bg-parchment min-h-screen font-body">
-      <nav className="flex items-center justify-between px-8 md:px-16 py-6">
-        <span className="font-display text-forest text-xl tracking-tight animate-fade-up delay-1">
-          Tara-Maria
-        </span>
-        <span className="text-earth/50 text-xs tracking-[0.2em] uppercase animate-fade-up delay-1">
-          Healer
-        </span>
-      </nav>
+    <div className="bg-parchment font-body">
+      <Nav />
 
+      {/* ── Hero ── */}
       <section className="relative px-8 md:px-16 flex flex-col justify-center min-h-[calc(100svh-76px)]">
         <div className="max-w-2xl">
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
-            Healing &middot; Grounding &middot; Presence
+            Reiki &middot; Akashic Readings &middot; Sound Healing &middot; Hypnotherapy
           </p>
-
-          <h1 className="font-display text-forest text-[clamp(3rem,7vw,6.5rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
-            Healing<br />
-            rooted in<br />
-            presence.
+          <h1 className="font-display text-forest text-[clamp(3.25rem,7vw,6.5rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
+            I am<br />a healer.
           </h1>
-
           <p className="text-earth/65 text-base md:text-lg leading-relaxed mt-8 max-w-sm animate-fade-up delay-4">
-            A practice that listens to the body, honors the energy field, and works with what is.
+            Supporting women through burnout, recovery, and self-realization — through the body, the energy field, and what is.
           </p>
-
           <div className="flex items-center gap-7 mt-10 animate-fade-up delay-5">
-            <a
-              href="#"
+            <Link
+              href="/booking"
               className="inline-block bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
             >
               Book a session
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/#services"
               className="text-earth/60 text-sm tracking-wide hover:text-earth transition-colors duration-200"
             >
-              Services
-            </a>
+              Explore services
+            </Link>
           </div>
         </div>
 
         <BotanicalSprig className="hidden md:block absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-40 lg:w-52 text-teal/20 pointer-events-none select-none" />
       </section>
+
+      {/* ── Who this is for ── */}
+      <section className="bg-cream px-8 md:px-16 py-20 md:py-28">
+        <div className="max-w-3xl">
+          <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">Who this is for</p>
+          <h2 className="font-display text-forest text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] tracking-tight mb-8">
+            You know yourself — and you&apos;re still learning yourself.
+          </h2>
+          <div className="space-y-5 text-earth/65 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p>
+              This work is for women in their 30s navigating the intersection of burnout, neurodivergence, and the quiet call to come home to themselves. You may have been told your sensitivity is too much. It isn&apos;t. It is the doorway.
+            </p>
+            <p>
+              Whether you are recovering from a season that depleted you, beginning to understand your AuDHD, or simply craving a space that meets you exactly where you are — this practice is built for that.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Services ── */}
+      <section id="services" className="px-8 md:px-16 py-20 md:py-28">
+        <div className="max-w-5xl">
+          <p className="text-teal text-xs tracking-[0.22em] uppercase mb-6">What I offer</p>
+          <h2 className="font-display text-forest text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-tight mb-16">
+            Each session is its own invitation.
+          </h2>
+
+          <div className="divide-y divide-earth/10">
+            {[
+              {
+                num: '01',
+                name: 'Reiki',
+                desc: 'Hands-on or distance energy work that supports the body\'s innate healing capacity. Sessions are gentle, intuitive, and held in deep stillness. Ideal for nervous system support, energetic clearing, and restoration.',
+              },
+              {
+                num: '02',
+                name: 'Akashic Readings',
+                desc: 'A guided exploration of your soul\'s record — the energetic archive of who you are, where you\'ve been, and what you are moving toward. Readings are conversational, grounded, and practically illuminating.',
+              },
+              {
+                num: '03',
+                name: 'Sound Healing',
+                desc: 'Immersive group or individual sessions using instruments that resonate through the body at a cellular level. A reset for the nervous system that asks nothing of you except to receive.',
+              },
+              {
+                num: '04',
+                name: 'Hypnotherapy',
+                desc: 'Guided sessions working with the subconscious mind to shift patterns, release stored stress, and reconnect with your own knowing. Audio sessions available for ongoing support.',
+              },
+            ].map(({ num, name, desc }) => (
+              <div key={num} className="py-9 md:py-11 flex flex-col md:flex-row md:items-start gap-4 md:gap-14">
+                <span className="font-display text-teal/40 text-sm tracking-[0.12em] shrink-0 md:w-8 pt-1">{num}</span>
+                <div className="flex-1">
+                  <h3 className="font-display text-forest text-xl md:text-2xl tracking-tight mb-3">{name}</h3>
+                  <p className="text-earth/65 text-sm md:text-base leading-relaxed max-w-xl">{desc}</p>
+                </div>
+                <div className="shrink-0">
+                  <Link
+                    href="/booking"
+                    className="text-teal text-xs tracking-[0.12em] uppercase hover:text-forest transition-colors duration-200"
+                  >
+                    Book &rarr;
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Events ── */}
+      <section id="events" className="bg-forest px-8 md:px-16 py-20 md:py-28">
+        <div className="max-w-5xl">
+          <p className="text-parchment/40 text-xs tracking-[0.22em] uppercase mb-6">Join me</p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+            <h2 className="font-display text-parchment text-[clamp(2rem,4vw,3rem)] leading-[1.08] tracking-tight max-w-lg">
+              Healing in community.
+            </h2>
+            <p className="text-parchment/55 text-sm md:text-base leading-relaxed max-w-xs">
+              Group sound healings and seasonal gatherings. No experience needed. Just bring yourself.
+            </p>
+          </div>
+
+          {/* Event list — replace with real data when available */}
+          <div className="divide-y divide-parchment/10">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <p className="text-parchment/35 text-xs tracking-[0.15em] uppercase mb-2">Date TBA</p>
+                  <p className="font-display text-parchment text-xl tracking-tight">Sound Healing Circle</p>
+                  <p className="text-parchment/50 text-sm mt-1.5">A two-hour immersive gathering. Drop in, drop down, receive.</p>
+                </div>
+                <a
+                  href="https://partiful.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-salmon text-xs tracking-[0.12em] uppercase hover:text-parchment transition-colors duration-200 shrink-0"
+                >
+                  View on Partiful &rarr;
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-parchment/10">
+            <p className="text-parchment/35 text-sm">
+              Events are listed on Partiful as they are scheduled.&nbsp;
+              <a
+                href="https://partiful.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-salmon hover:text-parchment transition-colors duration-200"
+              >
+                Follow along &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── About teaser ── */}
+      <section className="px-8 md:px-16 py-20 md:py-28">
+        <div className="max-w-5xl flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+          <div
+            className="shrink-0 w-full md:w-64 lg:w-80 aspect-[3/4] bg-sand rounded-sm"
+            role="img"
+            aria-label="Portrait of Tara-Maria"
+          />
+          <div>
+            <p className="text-teal text-xs tracking-[0.22em] uppercase mb-6">About Tara-Maria</p>
+            <h2 className="font-display text-forest text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight mb-7">
+              Healing is not something I do to you. It is something we move through together.
+            </h2>
+            <div className="space-y-5 text-earth/65 text-base leading-relaxed mb-9 max-w-lg">
+              <p>
+                I am a Reiki practitioner, Akashic Records reader, sound healer, and hypnotherapist. My work lives at the intersection of the somatic and the spiritual — and is shaped by my own experience as an AuDHD woman learning to trust the body as guide.
+              </p>
+              <p>
+                I work with women who are done performing wellness and ready to practice it.
+              </p>
+            </div>
+            <Link
+              href="/about"
+              className="text-earth text-sm tracking-wide underline underline-offset-4 decoration-earth/25 hover:decoration-earth transition-all duration-200"
+            >
+              Read my full story
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Newsletter ── */}
+      <section className="bg-earth px-8 md:px-16 py-20 md:py-28">
+        <div className="max-w-lg">
+          <BotanicalSprig className="w-10 text-parchment/15 mb-8" />
+          <h2 className="font-display text-parchment text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight mb-5">
+            Stay close.
+          </h2>
+          <p className="text-parchment/50 text-base leading-relaxed mb-10">
+            Letters on healing, energy, and the practice of coming home to yourself. Sent when something is worth saying.
+          </p>
+          {/* TODO: wire up Flodesk embed or API endpoint */}
+          <form className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your email"
+              className="flex-1 bg-parchment/8 border border-parchment/15 text-parchment placeholder:text-parchment/30 text-sm px-4 py-3 rounded focus:outline-none focus:border-parchment/40 transition-colors duration-200"
+            />
+            <button
+              type="submit"
+              className="bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200 whitespace-nowrap"
+            >
+              Join the list
+            </button>
+          </form>
+          <p className="text-parchment/20 text-xs mt-4">No frequency promises. Unsubscribe anytime.</p>
+        </div>
+      </section>
+
+      <Footer />
     </div>
-  );
+  )
 }
