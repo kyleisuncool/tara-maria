@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className="bg-parchment min-h-screen font-body">
       <nav className="flex items-center justify-between px-8 md:px-16 py-6">
-        <span className="font-display text-earth text-xl tracking-tight animate-fade-up delay-1">
+        <span className="font-display text-forest text-xl tracking-tight animate-fade-up delay-1">
           Tara-Maria
         </span>
         <span className="text-earth/50 text-xs tracking-[0.2em] uppercase animate-fade-up delay-1">
@@ -52,11 +52,11 @@ export default function Home() {
 
       <section className="relative px-8 md:px-16 flex flex-col justify-center min-h-[calc(100svh-76px)]">
         <div className="max-w-2xl">
-          <p className="text-clay text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
+          <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
             Healing &middot; Grounding &middot; Presence
           </p>
 
-          <h1 className="font-display text-earth text-[clamp(3rem,7vw,6.5rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
+          <h1 className="font-display text-forest text-[clamp(3rem,7vw,6.5rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
             Healing<br />
             rooted in<br />
             presence.
@@ -69,7 +69,7 @@ export default function Home() {
           <div className="flex items-center gap-7 mt-10 animate-fade-up delay-5">
             <a
               href="#"
-              className="inline-block bg-clay text-cream text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(50%_0.13_42)] transition-colors duration-200"
+              className="inline-block bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
             >
               Book a session
             </a>
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
         </div>
 
-        <BotanicalSprig className="hidden md:block absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-40 lg:w-52 text-clay/20 pointer-events-none select-none" />
+        <BotanicalSprig className="hidden md:block absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-40 lg:w-52 text-teal/20 pointer-events-none select-none" />
       </section>
     </div>
   );

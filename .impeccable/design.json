@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-25T00:00:00Z",
+  "title": "Design System: Tara-Maria",
+  "extensions": {
+    "colorMeta": {
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Sun-Warmed Parchment",
+        "canonical": "oklch(96% 0.018 82)",
+        "hex": "#F5F0E6",
+        "tonalRamp": [
+          "oklch(15% 0.007 82)",
+          "oklch(28% 0.010 82)",
+          "oklch(42% 0.013 82)",
+          "oklch(56% 0.015 82)",
+          "oklch(70% 0.016 82)",
+          "oklch(82% 0.017 82)",
+          "oklch(90% 0.017 82)",
+          "oklch(96% 0.018 82)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Warm Sand",
+        "canonical": "oklch(84% 0.04 62)",
+        "hex": "#E3CAB6",
+        "tonalRamp": [
+          "oklch(15% 0.016 62)",
+          "oklch(26% 0.022 62)",
+          "oklch(38% 0.030 62)",
+          "oklch(52% 0.036 62)",
+          "oklch(65% 0.038 62)",
+          "oklch(75% 0.040 62)",
+          "oklch(80% 0.040 62)",
+          "oklch(84% 0.040 62)"
+        ]
+      },
+      "earth": {
+        "role": "neutral",
+        "displayName": "Ancient Earth",
+        "canonical": "oklch(20% 0.02 58)",
+        "hex": "#2C2416",
+        "tonalRamp": [
+          "oklch(10% 0.010 58)",
+          "oklch(20% 0.020 58)",
+          "oklch(32% 0.022 58)",
+          "oklch(45% 0.020 58)",
+          "oklch(58% 0.018 58)",
+          "oklch(72% 0.014 58)",
+          "oklch(84% 0.010 58)",
+          "oklch(94% 0.006 58)"
+        ]
+      },
+      "earth-muted": {
+        "role": "neutral",
+        "displayName": "Ancient Earth (muted)",
+        "canonical": "oklch(20% 0.02 58 / 60%)",
+        "hex": null,
+        "tonalRamp": null
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Bone Cream",
+        "canonical": "oklch(94% 0.015 80)",
+        "hex": "#EDE8D8",
+        "tonalRamp": [
+          "oklch(18% 0.006 80)",
+          "oklch(32% 0.009 80)",
+          "oklch(48% 0.011 80)",
+          "oklch(63% 0.013 80)",
+          "oklch(76% 0.014 80)",
+          "oklch(85% 0.014 80)",
+          "oklch(91% 0.015 80)",
+          "oklch(94% 0.015 80)"
+        ]
+      },
+      "forest": {
+        "role": "neutral",
+        "displayName": "Forest Deep",
+        "canonical": "oklch(38% 0.07 170)",
+        "hex": "#32645B",
+        "tonalRamp": [
+          "oklch(10% 0.030 170)",
+          "oklch(20% 0.045 170)",
+          "oklch(30% 0.060 170)",
+          "oklch(38% 0.070 170)",
+          "oklch(50% 0.075 170)",
+          "oklch(62% 0.070 170)",
+          "oklch(76% 0.055 170)",
+          "oklch(90% 0.030 170)"
+        ]
+      },
+      "teal": {
+        "role": "primary",
+        "displayName": "Botanical Teal",
+        "canonical": "oklch(52% 0.09 198)",
+        "hex": "#2B8088",
+        "tonalRamp": [
+          "oklch(12% 0.038 198)",
+          "oklch(22% 0.055 198)",
+          "oklch(34% 0.072 198)",
+          "oklch(43% 0.085 198)",
+          "oklch(52% 0.090 198)",
+          "oklch(63% 0.082 198)",
+          "oklch(75% 0.065 198)",
+          "oklch(88% 0.038 198)"
+        ]
+      },
+      "salmon": {
+        "role": "secondary",
+        "displayName": "Warm Salmon",
+        "canonical": "oklch(75% 0.11 42)",
+        "hex": "#F69D7B",
+        "tonalRamp": [
+          "oklch(18% 0.044 42)",
+          "oklch(28% 0.062 42)",
+          "oklch(40% 0.080 42)",
+          "oklch(52% 0.094 42)",
+          "oklch(62% 0.104 42)",
+          "oklch(75% 0.110 42)",
+          "oklch(84% 0.090 42)",
+          "oklch(92% 0.055 42)"
+        ]
+      },
+      "plum": {
+        "role": "tertiary",
+        "displayName": "Deep Plum",
+        "canonical": "oklch(28% 0.14 348)",
+        "hex": "#74224A",
+        "tonalRamp": [
+          "oklch(10% 0.058 348)",
+          "oklch(18% 0.090 348)",
+          "oklch(28% 0.140 348)",
+          "oklch(38% 0.150 348)",
+          "oklch(50% 0.145 348)",
+          "oklch(62% 0.130 348)",
+          "oklch(76% 0.100 348)",
+          "oklch(89% 0.058 348)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only. Gloock in Forest Deep. One element per viewport. Surrounded by silence.",
+        "color": "forest"
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings. Gloock in Forest Deep. Same weight as Display, smaller scale.",
+        "color": "forest"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose. Bitter in Ancient Earth. Max 65-75ch line length.",
+        "color": "earth"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Wide-tracked uppercase tags. Bitter in Teal. Sparingly — 3-4 instances max per page.",
+        "color": "teal"
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-lift",
+        "value": "0 4px 24px oklch(20% 0.02 58 / 12%)",
+        "purpose": "The one permitted shadow. Floating or popped states only. Never decorative."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Standard easing for all entrance animations. Fast out, slow settle."
+      },
+      {
+        "name": "duration-entrance",
+        "value": "0.7s",
+        "purpose": "Fade-up entrance duration for hero elements."
+      },
+      {
+        "name": "duration-state",
+        "value": "0.2s",
+        "purpose": "Button hover, link hover, color transitions."
+      },
+      {
+        "name": "stagger-unit",
+        "value": "100ms",
+        "purpose": "Delay increment for staggered entrance sequences. Steps: 80ms, 180ms, 280ms, 380ms, 480ms."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Salmon fill, Ancient Earth text, 4px radius. Warm and inviting, not aggressive.",
+      "html": "<a class=\"ds-btn-primary\">Book a session</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: oklch(75% 0.11 42); color: oklch(20% 0.02 58); font-family: 'Bitter', Georgia, serif; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.025em; padding: 12px 24px; border-radius: 4px; border: none; text-decoration: none; cursor: pointer; transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-primary:hover { background: oklch(68% 0.11 42); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(52% 0.09 198); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Link",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary text-only action. Ancient Earth at 60% opacity, transitions to full Earth on hover.",
+      "html": "<a class=\"ds-btn-ghost\">Services</a>",
+      "css": ".ds-btn-ghost { display: inline-block; color: oklch(20% 0.02 58 / 60%); font-family: 'Bitter', Georgia, serif; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.025em; text-decoration: none; background: none; border: none; cursor: pointer; transition: color 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-ghost:hover { color: oklch(20% 0.02 58); } .ds-btn-ghost:focus-visible { outline: 2px solid oklch(52% 0.09 198); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Minimal two-element nav. Brand name in Forest Deep (cool botanical) left, 'Healer' in warm Earth/50 right. The Forest name signals the grove from the first moment.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">Tara-Maria</span><span class=\"ds-nav-label\">Healer</span></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 64px; background: oklch(96% 0.018 82); } .ds-nav-brand { font-family: 'Gloock', Georgia, serif; font-size: 1.25rem; font-weight: 400; color: oklch(38% 0.07 170); letter-spacing: -0.02em; } .ds-nav-label { font-family: 'Bitter', Georgia, serif; font-size: 0.75rem; font-weight: 400; color: oklch(20% 0.02 58 / 50%); letter-spacing: 0.2em; text-transform: uppercase; } @media (max-width: 768px) { .ds-nav { padding: 20px 32px; } }"
+    },
+    {
+      "name": "Label Tag",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Wide-tracked uppercase Bitter in Teal. Used for 'Healing · Grounding · Presence' and similar categorical tags.",
+      "html": "<p class=\"ds-label\">Healing &middot; Grounding &middot; Presence</p>",
+      "css": ".ds-label { font-family: 'Bitter', Georgia, serif; font-size: 0.75rem; font-weight: 400; color: oklch(52% 0.09 198); letter-spacing: 0.22em; text-transform: uppercase; margin: 0; }"
+    },
+    {
+      "name": "Botanical Sprig",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature SVG illustration. Set at 20% Teal for hero. Hand-drawn botanical quality, the whimsy anchor of the system.",
+      "html": "<div class=\"ds-sprig-wrap\"><svg viewBox=\"0 0 160 480\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M80 475 C76 420 88 390 82 345 C76 300 90 268 83 225 C76 182 90 155 84 112 C78 68 86 40 82 8\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><ellipse cx=\"110\" cy=\"405\" rx=\"22\" ry=\"9\" transform=\"rotate(-32 110 405)\" fill=\"currentColor\" opacity=\"0.75\"/><ellipse cx=\"50\" cy=\"396\" rx=\"22\" ry=\"9\" transform=\"rotate(32 50 396)\" fill=\"currentColor\" opacity=\"0.75\"/><ellipse cx=\"112\" cy=\"357\" rx=\"20\" ry=\"8\" transform=\"rotate(-28 112 357)\" fill=\"currentColor\" opacity=\"0.70\"/><ellipse cx=\"48\" cy=\"349\" rx=\"20\" ry=\"8\" transform=\"rotate(28 48 349)\" fill=\"currentColor\" opacity=\"0.70\"/><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"currentColor\" opacity=\"0.45\"/><circle cx=\"74\" cy=\"48\" r=\"3\" fill=\"currentColor\" opacity=\"0.38\"/></svg></div>",
+      "css": ".ds-sprig-wrap { color: oklch(52% 0.09 198 / 20%); width: 160px; pointer-events: none; user-select: none; } .ds-sprig-wrap svg { width: 100%; height: auto; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Enchanted Grove",
+    "overview": "Earthy and botanical at the foundation — warm parchment, forest-teal headings, Bitter body text on a sun-warmed page — but inhabited by a quiet magic that reveals itself in small moments. This is not the loud new-age aesthetic: no purple gradients, no crystal imagery, no wellness-influencer pastels. It is the older kind of magic: the kind that lives in forests, in hand-thrown pottery, in the way late-afternoon light hits warm paper.\n\nTara-Maria's personal flair (mermaids, unicorns, the fantastical tucked inside the earthy) surfaces not in literal imagery but in the character of the details. A color that surprises you. An animation that lingers a beat. A botanical illustration that feels slightly more alive than expected.\n\nBoth typefaces are serifs. Gloock in Forest brings cool, editorial gravity. Bitter in Earth brings slab warmth. The cool/warm temperature contrast between them is the typographic heartbeat of the system.",
+    "keyCharacteristics": [
+      "Warm, unhurried, quiet — presence before polish",
+      "Botanical and earthy with water-cool headings and warm body text",
+      "Strong sectional rhythm; one idea per section",
+      "Both display and body in serif: an unusual, committed pairing",
+      "Plum held in reserve as the magic color",
+      "Whimsy as texture, not costume"
+    ],
+    "rules": [
+      {
+        "name": "The Plum Rule",
+        "body": "Plum is never a layout color. Never background, never body text, never border. One element, smaller than 2% of any surface. Its rarity is the entire point.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-True-Black Rule",
+        "body": "#000 and oklch(0% 0 0) are prohibited. The darkest value is Ancient Earth oklch(20% 0.02 58). Nothing goes darker.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Register Rule",
+        "body": "Warm register (parchment, sand, earth, cream) = backgrounds and body text. Cool register (forest, teal) = headings and accents. Never swap accidentally.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Commitment Rule",
+        "body": "No sans-serif in this system. Every typographic element uses Gloock or Bitter. The two-serif combination is the signature.",
+        "section": "typography"
+      },
+      {
+        "name": "The Color-to-Font Rule",
+        "body": "Gloock = Forest Deep. Bitter = Ancient Earth (body) or Teal (labels). Reversing these pairings breaks the design logic.",
+        "section": "typography"
+      },
+      {
+        "name": "The Display Restraint Rule",
+        "body": "Display scale (clamp 3rem to 6.5rem) appears on at most one element per viewport. Its size works because it is surrounded by silence.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-and-Warm Rule",
+        "body": "If a surface needs a shadow to feel distinct, the problem is color or spacing. Fix those instead. One exception: ambient-lift for floating/popped states only.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use OKLCH for all color values. The palette is OKLCH-native.",
+      "Do render Gloock headings in Forest Deep. The cool/warm typographic contrast is the system signature.",
+      "Do give every section strong breathing room. One idea per section, generous whitespace.",
+      "Do use Salmon for primary CTAs. Warm, inviting, never aggressive.",
+      "Do hold Plum in strict reserve. One element, under 2% of surface, never expected.",
+      "Do let Tara-Maria's personality be center. The about page is where the mermaids and unicorns live.",
+      "Do respect prefers-reduced-motion. All animations must be gated.",
+      "Do keep body line length at 65-75ch."
+    ],
+    "donts": [
+      "Don't use sans-serif fonts. The two-serif commitment is the signature.",
+      "Don't use gradient text (background-clip: text with a gradient). Prohibited.",
+      "Don't use side-stripe borders (border-left or border-right > 1px as a colored accent).",
+      "Don't put Earth-colored Gloock headings against Teal or Forest backgrounds. The Two-Register Rule governs.",
+      "Don't make the site look like a generic spa: no stock candle photos, no cursive-on-beige, no teal used generically.",
+      "Don't use loud new-age aesthetics: no purple gradients, no heavy crystal imagery.",
+      "Don't use trendy wellness-influencer pastels.",
+      "Don't build services as an identical card grid. Text-forward, always.",
+      "Don't open a modal as the first instinct for booking, newsletter, or contact.",
+      "Don't add a third typeface. Two fonts, no more.",
+      "Don't deploy Plum as a layout color, background, or text. The Plum Rule is absolute."
+    ]
+  }
+}
