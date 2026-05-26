@@ -67,7 +67,7 @@ export default function Home() {
         <div className="max-w-3xl">
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">Who this is for</p>
           <h2 className="font-display text-forest text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] tracking-tight mb-8">
-            You know yourself — and you&apos;re still learning yourself.
+            You know yourself, and you&apos;re still learning yourself.
           </h2>
           <div className="space-y-5 text-earth/65 text-base md:text-lg leading-relaxed max-w-2xl">
             <p>
@@ -184,11 +184,14 @@ export default function Home() {
       {/* ── About teaser ── */}
       <section className="px-8 md:px-16 py-20 md:py-28">
         <div className="max-w-5xl flex flex-col md:flex-row gap-12 md:gap-20 items-center">
-          <div
-            className="shrink-0 w-full md:w-64 lg:w-80 aspect-[3/4] bg-sand rounded-sm"
-            role="img"
-            aria-label="Portrait of Tara-Maria"
-          />
+          <div className="relative shrink-0 w-full md:w-64 lg:w-80 aspect-[3/4] rounded-sm overflow-hidden">
+            <Image
+              src="/images/tara-portrait-tall-2.jpg"
+              alt="Portrait of Tara-Maria in a bamboo garden"
+              fill
+              className="object-cover object-top"
+            />
+          </div>
           <div>
             <p className="text-teal text-xs tracking-[0.22em] uppercase mb-6">About Tara-Maria</p>
             <h2 className="font-display text-forest text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight mb-7">

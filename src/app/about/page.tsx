@@ -2,6 +2,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import BotanicalSprig from '../components/BotanicalSprig'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About — Tara-Maria',
@@ -14,23 +15,29 @@ export default function About() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="px-8 md:px-16 pt-20 pb-16 md:pt-28 md:pb-20">
-        <div className="max-w-5xl flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-          <div className="flex-1 order-2 md:order-1">
-            <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">About</p>
-            <h1 className="font-display text-forest text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.04] tracking-tight mb-8">
-              I meet you<br />where you are.
-            </h1>
-            <p className="text-earth/65 text-base md:text-lg leading-relaxed max-w-md">
-              My name is Tara-Maria. I am a healer, and I have been practicing long enough to know that healing is not linear, not performative, and not one-size-fits-all.
-            </p>
-          </div>
-          <div
-            className="order-1 md:order-2 shrink-0 w-full md:w-72 lg:w-96 aspect-[3/4] bg-sand rounded-sm"
-            role="img"
-            aria-label="Portrait of Tara-Maria"
+      <section className="flex flex-col md:flex-row min-h-[90vh]">
+
+        {/* Left — text */}
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-20 md:py-28">
+          <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">About</p>
+          <h1 className="font-display text-forest text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.04] tracking-tight mb-8">
+            I meet you<br />where you are.
+          </h1>
+          <p className="text-earth/65 text-base md:text-lg leading-relaxed max-w-md">
+            My name is Tara-Maria. I am a healer, and I have been practicing long enough to know that healing is not linear, not performative, and not one-size-fits-all.
+          </p>
+        </div>
+
+        {/* Right — full-bleed portrait */}
+        <div className="relative w-full aspect-[4/3] md:aspect-auto md:w-1/2 overflow-hidden">
+          <Image
+            src="/images/tara-portrait-tall-2.jpg"
+            alt="Portrait of Tara-Maria in a bamboo garden"
+            fill
+            className="object-cover object-top"
           />
         </div>
+
       </section>
 
       {/* ── Story ── */}
@@ -98,14 +105,13 @@ export default function About() {
       </section>
 
       {/* ── Session photo placeholder ── */}
-      <section className="bg-sand/25 px-8 md:px-16 py-16 md:py-20">
-        <div className="max-w-5xl">
-          <div
-            className="w-full aspect-[16/9] md:aspect-[21/9] bg-sand rounded-sm"
-            role="img"
-            aria-label="Tara-Maria in session"
-          />
-        </div>
+      <section className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden">
+        <Image
+          src="/images/tara-in-session-cine-wide-1.jpg"
+          alt="Tara-Maria playing a singing bowl during a sound healing session"
+          fill
+          className="object-cover object-center"
+        />
       </section>
 
       {/* ── Values ── */}
