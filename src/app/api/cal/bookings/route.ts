@@ -41,6 +41,19 @@ export async function POST(request: NextRequest) {
 
   // ── Live Cal.com API ───────────────────────────────────────────────────────
   try {
+    const payload = {
+      start: body.startTime,
+      eventTypeId: body.eventTypeId,
+      attendee: {
+        name: body.name,
+        email: body.email,
+        timeZone: body.timezone,
+      },
+      // Cal.com attendee object does not accept a notes field;
+      // surface it via metadata so it appears in the dashboard
+      ...(body.notes ? { metadata: { notes: body.notes } } : {}),
+    }
+
     const res = await fetch(`${CAL_API_BASE}/bookings`, {
       method: 'POST',
       headers: {
@@ -48,20 +61,13 @@ export async function POST(request: NextRequest) {
         'cal-api-version': '2024-08-13',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        start: body.startTime,
-        eventTypeId: body.eventTypeId,
-        attendee: {
-          name: body.name,
-          email: body.email,
-          timeZone: body.timezone,
-          notes: body.notes ?? '',
-        },
-      }),
+      body: JSON.stringify(payload),
     })
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}))
+      // Log the full Cal.com error so it's visible in server logs
+      console.error('[/api/cal/bookings] Cal.com error body:', JSON.stringify(err))
       throw new Error((err as { message?: string }).message ?? `Cal.com API responded ${res.status}`)
     }
 
