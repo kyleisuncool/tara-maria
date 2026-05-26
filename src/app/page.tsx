@@ -2,6 +2,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import BotanicalSprig from './components/BotanicalSprig'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Tara-Maria — Healer',
@@ -14,34 +15,51 @@ export default function Home() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="relative px-8 md:px-16 flex flex-col justify-center min-h-[calc(100svh-76px)]">
-        <div className="max-w-2xl">
-          <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
-            Reiki &middot; Akashic Readings &middot; Sound Healing &middot; Hypnotherapy
-          </p>
-          <h1 className="font-display text-forest text-[clamp(3.25rem,7vw,6.5rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
-            I am<br />a healer.
-          </h1>
-          <p className="text-earth/65 text-base md:text-lg leading-relaxed mt-8 max-w-sm animate-fade-up delay-4">
-            Supporting women through burnout, recovery, and self-realization — through the body, the energy field, and what is.
-          </p>
-          <div className="flex items-center gap-7 mt-10 animate-fade-up delay-5">
-            <Link
-              href="/booking"
-              className="inline-block bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
-            >
-              Book a session
-            </Link>
-            <Link
-              href="/#services"
-              className="text-earth/60 text-sm tracking-wide hover:text-earth transition-colors duration-200"
-            >
-              Explore services
-            </Link>
+      <section className="relative flex items-center min-h-[calc(100svh-76px)] overflow-hidden">
+
+        {/* Full-bleed photo */}
+        <Image
+          src="/images/tara-portrait-wide-1.jpg"
+          alt="Tara-Maria seated in a bamboo garden"
+          fill
+          priority
+          className="object-cover object-[30%_50%] md:object-center"
+        />
+
+        {/* Mobile scrim — bottom up, text sits over photo center */}
+        <div className="absolute inset-0 bg-gradient-to-t from-earth/85 via-earth/50 to-earth/10 pointer-events-none md:hidden" />
+        {/* Desktop scrim — right to left */}
+        <div className="absolute inset-0 bg-gradient-to-l from-earth/70 via-earth/25 to-transparent pointer-events-none hidden md:block" />
+
+        {/* Text — right side */}
+        <div className="relative z-10 w-full px-8 md:px-16 flex justify-end">
+          <div className="max-w-xs md:max-w-xl">
+            <p className="text-parchment/60 text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
+              Reiki &middot; Akashic Readings &middot; Sound Healing &middot; Hypnotherapy
+            </p>
+            <h1 className="font-display text-parchment text-[clamp(3rem,6vw,6rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
+              I am<br />a healer.
+            </h1>
+            <p className="text-parchment/75 text-base leading-relaxed mt-8 animate-fade-up delay-4">
+              Supporting women through burnout, recovery, and self-realization — through the body, the energy field, and what is.
+            </p>
+            <div className="flex flex-row flex-wrap items-center gap-x-7 gap-y-4 mt-10 animate-fade-up delay-5">
+              <Link
+                href="/booking"
+                className="inline-block bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
+              >
+                Book a session
+              </Link>
+              <Link
+                href="/#services"
+                className="text-parchment/60 text-sm tracking-wide hover:text-parchment transition-colors duration-200"
+              >
+                Explore services
+              </Link>
+            </div>
           </div>
         </div>
 
-        <BotanicalSprig className="hidden md:block absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-40 lg:w-52 text-teal/20 pointer-events-none select-none" />
       </section>
 
       {/* ── Who this is for ── */}
