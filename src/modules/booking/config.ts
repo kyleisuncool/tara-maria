@@ -1,0 +1,52 @@
+import type { SessionType } from './types'
+
+/**
+ * Session type definitions for Tara-Maria.
+ *
+ * When Cal.com event types are created, set `calEventTypeId` to the numeric ID
+ * from the Cal.com dashboard (Settings → Event Types → copy the ID from the URL).
+ * The API routes fall back to mock data when any ID is null or when
+ * CAL_API_KEY is not set in the environment.
+ */
+export const SESSION_TYPES: SessionType[] = [
+  {
+    id: 'reiki',
+    num: '01',
+    name: 'Reiki Session',
+    duration: 60,
+    format: 'both',
+    formatLabel: 'Remote or in person',
+    desc: 'A quiet, held session working with your energy field. Arrive however you are — depleted, activated, uncertain. The session meets you there. Available hands-on or at distance.',
+    calEventTypeId: null,
+  },
+  {
+    id: 'akashic',
+    num: '02',
+    name: 'Akashic Reading',
+    duration: 60,
+    format: 'remote',
+    formatLabel: 'Remote via Zoom',
+    desc: "A guided exploration of your soul's energetic record. Readings are conversational and practical. You may bring specific questions or arrive open — both work.",
+    calEventTypeId: null,
+  },
+  {
+    id: 'sound-healing',
+    num: '03',
+    name: 'Sound Healing — Individual',
+    duration: 60,
+    format: 'in-person',
+    formatLabel: 'In person',
+    desc: 'A private sound healing session tailored to your nervous system and intention. Deep listening, deep rest. No experience with sound healing required.',
+    calEventTypeId: null,
+  },
+  {
+    id: 'hypnotherapy',
+    num: '04',
+    name: 'Hypnotherapy',
+    duration: 90,
+    format: 'remote',
+    formatLabel: 'Remote via Zoom',
+    desc: 'A guided subconscious session to shift patterns and reconnect with your own knowing. Includes a custom audio recording sent after the session for continued support.',
+    calEventTypeId: null,
+  },
+]

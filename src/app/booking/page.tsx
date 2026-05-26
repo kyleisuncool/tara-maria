@@ -1,42 +1,12 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Link from 'next/link'
+import { BookingSection } from './BookingSection'
 
 export const metadata = {
   title: 'Book a Session — Tara-Maria',
   description: 'Book a Reiki session, Akashic Reading, Sound Healing, or Hypnotherapy session with Tara-Maria.',
 }
-
-const sessions = [
-  {
-    num: '01',
-    name: 'Reiki Session',
-    duration: '60 min',
-    format: 'Remote or in person',
-    desc: 'A quiet, held session working with your energy field. Arrive however you are — depleted, activated, uncertain. The session meets you there. Available hands-on or at distance.',
-  },
-  {
-    num: '02',
-    name: 'Akashic Reading',
-    duration: '60 min',
-    format: 'Remote via Zoom',
-    desc: 'A guided exploration of your soul\'s energetic record. Readings are conversational and practical. You may bring specific questions or arrive open — both work.',
-  },
-  {
-    num: '03',
-    name: 'Sound Healing — Individual',
-    duration: '60 min',
-    format: 'In person',
-    desc: 'A private sound healing session tailored to your nervous system and intention. Deep listening, deep rest. No experience with sound healing required.',
-  },
-  {
-    num: '04',
-    name: 'Hypnotherapy',
-    duration: '90 min',
-    format: 'Remote via Zoom',
-    desc: 'A guided subconscious session to shift patterns and reconnect with your own knowing. Includes a custom audio recording sent after the session for continued support.',
-  },
-]
 
 export default function Booking() {
   return (
@@ -56,32 +26,8 @@ export default function Booking() {
         </div>
       </section>
 
-      {/* ── Session types ── */}
-      <section className="px-8 md:px-16 pb-20 md:pb-28">
-        <div className="max-w-5xl divide-y divide-earth/10">
-          {sessions.map(({ num, name, duration, format, desc }) => (
-            <div key={num} className="py-10 md:py-12 flex flex-col md:flex-row md:items-start gap-5 md:gap-16">
-              <span className="font-display text-teal/40 text-sm tracking-[0.12em] shrink-0 md:w-8 pt-1">{num}</span>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 mb-4">
-                  <h2 className="font-display text-forest text-xl md:text-2xl tracking-tight">{name}</h2>
-                  <span className="text-earth/35 text-xs tracking-[0.12em] uppercase">{duration} &middot; {format}</span>
-                </div>
-                <p className="text-earth/65 text-sm md:text-base leading-relaxed max-w-xl">{desc}</p>
-              </div>
-              <div className="shrink-0">
-                {/* TODO: replace # with booking platform link (Calendly, etc.) */}
-                <a
-                  href="#"
-                  className="inline-block border border-earth/20 text-earth/80 text-xs tracking-[0.12em] uppercase px-5 py-2.5 rounded hover:bg-earth hover:border-earth hover:text-parchment transition-all duration-200"
-                >
-                  Book
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── Session types + booking widget ── */}
+      <BookingSection />
 
       {/* ── Group events callout ── */}
       <section className="bg-cream px-8 md:px-16 py-16 md:py-20">
