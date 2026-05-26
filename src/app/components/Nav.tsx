@@ -26,7 +26,7 @@ export default function Nav() {
           </Link>
           <Link
             href="/booking"
-            className="inline-block bg-salmon text-earth text-sm tracking-wide px-5 py-2.5 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
+            className="inline-block bg-plum text-parchment text-sm tracking-wide px-5 py-2.5 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
           >
             Book
           </Link>
@@ -36,7 +36,7 @@ export default function Nav() {
         <div className="flex items-center gap-4 md:hidden">
           <Link
             href="/booking"
-            className="inline-block bg-salmon text-earth text-xs tracking-wide px-4 py-2 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
+            className="inline-block bg-plum text-parchment text-xs tracking-wide px-4 py-2 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
           >
             Book
           </Link>
@@ -86,7 +86,7 @@ export default function Nav() {
           <Link
             href="/booking"
             onClick={() => setOpen(false)}
-            className="inline-block bg-salmon text-earth text-sm tracking-wide px-5 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200 text-center"
+            className="inline-block bg-plum text-parchment text-sm tracking-wide px-5 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200 text-center"
           >
             Book a session
           </Link>

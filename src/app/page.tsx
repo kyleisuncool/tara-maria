@@ -28,7 +28,7 @@ export default function Home() {
           <div className="flex items-center gap-7 mt-10 animate-fade-up delay-5">
             <Link
               href="/booking"
-              className="inline-block bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
+              className="inline-block bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
             >
               Book a session
             </Link>
@@ -215,7 +215,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200 whitespace-nowrap"
+              className="bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200 whitespace-nowrap"
             >
               Join the list
             </button>

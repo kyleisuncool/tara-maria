@@ -155,7 +155,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row items-start gap-5">
             <Link
               href="/booking"
-              className="inline-block bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
+              className="inline-block bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
             >
               Book a session
             </Link>

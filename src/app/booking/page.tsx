@@ -100,7 +100,7 @@ export default function Booking() {
               href="https://partiful.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-salmon text-earth text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(68%_0.11_42)] transition-colors duration-200"
+              className="inline-block bg-plum text-parchment text-sm tracking-wide px-6 py-3 rounded hover:bg-[oklch(34%_0.14_348)] transition-colors duration-200"
             >
               See upcoming events
             </a>
