@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tara-Maria
 
-## Getting Started
+Website for Tara-Maria — Reiki, Akashic Readings, Sound Healing, and Hypnotherapy.
 
-First, run the development server:
+**Stack:** Next.js 16 · React 19 · Tailwind v4 · TypeScript  
+**Deployed on:** Netlify (`main` branch auto-deploys)
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` to `.env.local` and fill in values as needed. Never commit `.env.local`.
 
-## Learn More
+| Variable | Required | Description |
+|---|---|---|
+| `CAL_API_KEY` | For live booking | Cal.com API key (Settings → Developer → API Keys) |
+| `ALLOWED_DEV_ORIGINS` | For device testing | Comma-separated IPs allowed to reach the dev server from other devices (see below) |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Testing on a phone or tablet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Next.js 16 blocks cross-origin requests to dev resources by default. To load the local dev server from another device on the same network (iPhone, iPad, etc.), you need to explicitly whitelist your Mac's local IP.
 
-## Deploy on Vercel
+**1. Find your local IP:**
+```bash
+ipconfig getifaddr en0
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**2. Add it to `.env.local`:**
+```
+ALLOWED_DEV_ORIGINS=192.168.x.x
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**3. Start the dev server bound to all interfaces:**
+```bash
+npm run dev -- --hostname 0.0.0.0
+```
+
+**4. Open on your device:** `http://<your-ip>:3000`
+
+> Your IP changes when you switch networks — just update `.env.local`. Nothing in the committed code needs to change. Multiple IPs can be comma-separated: `192.168.1.42,192.168.1.55`
+
+---
+
+## Booking module
+
+The booking flow lives in `src/modules/booking/` and is intentionally self-contained for reuse across future client projects. API calls are proxied through `src/app/api/cal/` to keep credentials server-side.
+
+Both routes automatically return realistic stub data when `CAL_API_KEY` is not set — the full five-step booking flow works locally without a Cal.com account.
+
+See [`TODO.md`](./TODO.md) for current status and what's needed to connect a live Cal.com account.
+
+---
+
+## Branches
+
+| Branch | Purpose |
+|---|---|
+| `main` | Production — auto-deploys to Netlify |
+| `booking-module` | Cal.com booking integration (in progress) |
