@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export const metadata = {
   title: 'About — Tara-Maria',
-  description: 'A Reiki practitioner, Akashic Records reader, sound healer, and hypnotherapist working at the intersection of the somatic and the spiritual.',
+  description: 'A registered nurse and cancer survivor who found sound healing, hypnotherapy, and Reiki through her own recovery and now brings that experience to her practice.',
 }
 
 export default function About() {
@@ -24,7 +24,7 @@ export default function About() {
             I meet you<br />where you are.
           </h1>
           <p className="text-earth/65 text-base md:text-lg leading-relaxed max-w-md">
-            My name is Tara-Maria. I am a healer, and I have been practicing long enough to know that healing is not linear, not performative, and not one-size-fits-all.
+            My name is Tara-Maria. I am a registered nurse, a cancer survivor, and a healer. Those three things are not separate. They are the same story.
           </p>
         </div>
 
@@ -46,13 +46,16 @@ export default function About() {
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-8">My story</p>
           <div className="space-y-6 text-earth/70 text-base md:text-lg leading-relaxed">
             <p>
-              I came to healing through my own unraveling. Burnout has a way of stripping away pretense — the performed competence, the relentless doing — and leaving something quieter in its place. In that quiet, I found Reiki. And then the Akashic Records. And then sound.
+              I have been a registered nurse for thirteen years. I believe in evidence. I believe in protocol. I understand, at a clinical level, how the body responds to stress, illness, and intervention. And then I was diagnosed with cancer, and found myself on the other side of the bed.
             </p>
             <p>
-              Later came the piece I hadn&apos;t expected: learning I was AuDHD. That understanding didn&apos;t change who I was — it explained a great deal about how I had always moved through the world. It also became central to my practice, because the women who find me are often navigating something similar: a nervous system that is neither broken nor wrong, just different.
+              What I encountered in that experience was not a failure of medicine. Medicine did its job. What I found was a gap between what clinical care addresses and what a person actually needs to heal. The nervous system. The fear that lives in the body long after treatment ends. The sense of self that quietly dissolves in the middle of it all.
             </p>
             <p>
-              I work at the intersection of the somatic and the spiritual. The body holds what the mind has not yet processed. Energy moves in response to presence, not performance. My sessions are built on that understanding.
+              That gap is where I started looking. I came to sound healing, hypnotherapy, and Reiki not as someone searching for something spiritual, but as a clinician looking for evidence. I found it. And I found that these modalities worked in ways I could not dismiss, in a body I know intimately.
+            </p>
+            <p>
+              I built this practice from that place. It sits at the intersection of what clinical healthcare gets right and what it misses. The body holds what the mind has not yet processed. Healing is not linear, not performative, and rarely what we expect it to be.
             </p>
             <p>
               This is not a practice about fixing you. It is about returning to what was always there.
@@ -73,23 +76,23 @@ export default function About() {
             {[
               {
                 num: '01',
-                name: 'Reiki',
-                body: 'Energy work that works with the body\'s innate intelligence. Sessions are quiet, intuitive, and held in stillness. I am trained in Traditional Usui Reiki and offer both hands-on and distance sessions.',
+                name: 'Sound Healing',
+                body: 'Instruments that resonate through the body at a cellular level. Research shows measurable effects on nervous system regulation, brainwave states, and pain reduction. Offered individually and in group circles throughout the month.',
               },
               {
                 num: '02',
-                name: 'Akashic Readings',
-                body: 'A reading of the soul\'s energetic record — where patterns live, where they were formed, and how they are moving. Practical, grounded, and conversational. You may arrive with questions or arrive open.',
+                name: 'Hypnotherapy',
+                body: 'Guided sessions working with the subconscious to shift patterns, release stored stress, and reconnect with innate knowing. A clinically recognized modality with a strong body of research behind it. Sessions include a custom audio recording for continued support.',
               },
               {
                 num: '03',
-                name: 'Sound Healing',
-                body: 'Instruments that resonate through the body at a cellular level. A reset for the nervous system that requires nothing but receiving. Offered individually and in group circles throughout the month.',
+                name: 'Reiki',
+                body: 'Energy work that supports the body\'s innate healing intelligence. Increasingly studied in clinical settings. Recent meta-analyses show consistent effects on anxiety, pain, and fatigue. Available hands-on or at distance.',
               },
               {
                 num: '04',
-                name: 'Hypnotherapy',
-                body: 'Guided sessions working with the subconscious to shift patterns, release stored stress, and reconnect with innate knowing. Sessions include a custom audio recording for continued support between sessions.',
+                name: 'Akashic Readings',
+                body: 'A reading of the soul\'s energetic record, tracing where patterns live, where they were formed, and how they are moving. Practical, grounded, and conversational. You may arrive with questions or arrive open.',
               },
             ].map(({ num, name, body }) => (
               <div key={num} className="py-9 md:py-11 flex flex-col md:flex-row md:items-start gap-4 md:gap-14">
@@ -124,10 +127,10 @@ export default function About() {
                 Sessions are unhurried. I will not rush you to insight or resolution. Some sessions are deeply quiet. Some are conversational. I follow what the session calls for rather than a fixed formula.
               </p>
               <p>
-                I work remotely via Zoom and in person. Remote sessions are equally full — energy does not require proximity.
+                I work remotely via Zoom and in person. Remote sessions are equally full. Energy does not require proximity.
               </p>
               <p>
-                I am not your therapist, your doctor, or your guru. I am a practitioner who shows up, pays attention, and holds the space for what wants to move.
+                I am not your therapist or your guru. My nursing background informs this work. It does not define it. I show up as a practitioner, pay attention, and hold the space for what wants to move.
               </p>
             </div>
           </div>
@@ -135,10 +138,10 @@ export default function About() {
             <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">Who I work with</p>
             <div className="space-y-5 text-earth/65 text-base leading-relaxed">
               <p>
-                Primarily women in their 30s. Many are navigating burnout, AuDHD discovery, or a quiet but persistent sense that something needs to shift.
+                People who have been running hard in demanding careers, caregiving roles, or recovery, and are beginning to feel it in their bodies. Many arrive having tried the conventional routes and found them incomplete.
               </p>
               <p>
-                Some arrive having tried many things. Some arrive new to energy work entirely. Both are welcome. The only requirement is willingness.
+                Some are new to energy work entirely. Some are skeptical but curious. Both are welcome. The only requirement is willingness.
               </p>
               <p>
                 I see 6–10 consistent clients each month, and offer group sound healings several times a month for those drawn to the collective field.

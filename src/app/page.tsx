@@ -5,8 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'Tara-Maria — Healer',
-  description: 'Reiki, Akashic Readings, Sound Healing, and Hypnotherapy for women navigating burnout, recovery, and self-realization.',
+  title: 'Tara-Maria — Sound Healer & Hypnotherapist',
+  description: 'Sound healing, hypnotherapy, and Reiki from a registered nurse with 13 years in healthcare. Evidence-grounded healing for those navigating burnout, recovery, and self-discovery.',
 }
 
 export default function Home() {
@@ -35,13 +35,13 @@ export default function Home() {
         <div className="relative z-10 w-full px-8 md:px-16 flex justify-end">
           <div className="max-w-xs md:max-w-xl">
             <p className="text-parchment/60 text-xs tracking-[0.22em] uppercase mb-7 animate-fade-up delay-2">
-              Reiki &middot; Akashic Readings &middot; Sound Healing &middot; Hypnotherapy
+              Sound Healing &middot; Hypnotherapy &middot; Reiki
             </p>
             <h1 className="font-display text-parchment text-[clamp(3rem,6vw,6rem)] leading-[1.02] tracking-tight animate-fade-up delay-3">
-              I am<br />a healer.
+              Sound<br />heals.
             </h1>
             <p className="text-parchment/75 text-base leading-relaxed mt-8 animate-fade-up delay-4">
-              Supporting women through burnout, recovery, and self-realization — through the body, the energy field, and what is.
+              Evidence-backed healing for people navigating burnout, recovery, and what comes next. From a practitioner who has been there.
             </p>
             <div className="flex flex-row flex-wrap items-center gap-x-7 gap-y-4 mt-10 animate-fade-up delay-5">
               <Link
@@ -67,14 +67,14 @@ export default function Home() {
         <div className="max-w-3xl">
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">Who this is for</p>
           <h2 className="font-display text-forest text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] tracking-tight mb-8">
-            You know yourself, and you&apos;re still learning yourself.
+            You know how to push. You&apos;re learning how to rest.
           </h2>
           <div className="space-y-5 text-earth/65 text-base md:text-lg leading-relaxed max-w-2xl">
             <p>
-              This work is for women in their 30s navigating the intersection of burnout, neurodivergence, and the quiet call to come home to themselves. You may have been told your sensitivity is too much. It isn&apos;t. It is the doorway.
+              This work is for people who have been running hard in demanding careers, caregiving roles, high-output lives, and are beginning to feel it in their bodies. Not broken. Just depleted, and ready for something different.
             </p>
             <p>
-              Whether you are recovering from a season that depleted you, beginning to understand your AuDHD, or simply craving a space that meets you exactly where you are — this practice is built for that.
+              Whether you are recovering from burnout, navigating a nervous system that never quite settles, or simply looking for a practice grounded in both evidence and presence. This is built for that.
             </p>
           </div>
         </div>
@@ -92,23 +92,23 @@ export default function Home() {
             {[
               {
                 num: '01',
-                name: 'Reiki',
-                desc: 'Hands-on or distance energy work that supports the body\'s innate healing capacity. Sessions are gentle, intuitive, and held in deep stillness. Ideal for nervous system support, energetic clearing, and restoration.',
+                name: 'Sound Healing',
+                desc: 'Individual and group sessions using instruments that resonate through the body at a cellular level. Sound therapy is one of the fastest-growing areas of evidence-based wellness. Research shows measurable effects on nervous system regulation, brainwave states, and pain. No experience needed. Just arrive.',
               },
               {
                 num: '02',
-                name: 'Akashic Readings',
-                desc: 'A guided exploration of your soul\'s record — the energetic archive of who you are, where you\'ve been, and what you are moving toward. Readings are conversational, grounded, and practically illuminating.',
+                name: 'Hypnotherapy',
+                desc: 'Guided sessions working with the subconscious mind to shift patterns, release stored stress, and reconnect with your own knowing. A clinically recognized modality with a strong and growing body of research behind it. Each session includes a custom audio recording for continued support.',
               },
               {
                 num: '03',
-                name: 'Sound Healing',
-                desc: 'Immersive group or individual sessions using instruments that resonate through the body at a cellular level. A reset for the nervous system that asks nothing of you except to receive.',
+                name: 'Reiki',
+                desc: 'Hands-on or distance energy work that supports the body\'s innate healing capacity. Increasingly studied in clinical settings. Recent meta-analyses show consistent effects on anxiety, pain, and fatigue. Sessions are gentle, intuitive, and held in deep stillness.',
               },
               {
                 num: '04',
-                name: 'Hypnotherapy',
-                desc: 'Guided sessions working with the subconscious mind to shift patterns, release stored stress, and reconnect with your own knowing. Audio sessions available for ongoing support.',
+                name: 'Akashic Readings',
+                desc: 'A guided exploration of your soul\'s record: the energetic archive of who you are, where you\'ve been, and what you are moving toward. Readings are conversational, grounded, and practically illuminating.',
               },
             ].map(({ num, name, desc }) => (
               <div key={num} className="py-9 md:py-11 flex flex-col md:flex-row md:items-start gap-4 md:gap-14">
@@ -199,10 +199,10 @@ export default function Home() {
             </h2>
             <div className="space-y-5 text-earth/65 text-base leading-relaxed mb-9 max-w-lg">
               <p>
-                I am a Reiki practitioner, Akashic Records reader, sound healer, and hypnotherapist. My work lives at the intersection of the somatic and the spiritual — and is shaped by my own experience as an AuDHD woman learning to trust the body as guide.
+                I am a registered nurse with thirteen years in healthcare, and a sound healer, hypnotherapist, and Reiki practitioner. My clinical background is part of why I trust these modalities, and why my work sits at the intersection of evidence and energy.
               </p>
               <p>
-                I work with women who are done performing wellness and ready to practice it.
+                I work with people who are done performing wellness and ready to practice it.
               </p>
             </div>
             <Link
