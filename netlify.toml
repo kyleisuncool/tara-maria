@@ -1,0 +1,6 @@
+[build.environment]
+  # NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is intentionally public — it is embedded
+  # in client bundles by design (that is what the NEXT_PUBLIC_ prefix means and
+  # what Stripe's publishable key is for). Tell Netlify's secrets scanner to
+  # ignore it so it does not fail the build.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
