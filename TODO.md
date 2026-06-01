@@ -52,92 +52,121 @@ All four event types are created, IDs are wired into `config.ts`:
 
 ---
 
-## What's next — Stripe payment integration
+## Stripe payment integration ✓
 
-### Decision: custom Stripe step, not Cal.com's native payment feature
+Built. The wizard now supports an optional payment step between Details and Confirmed.
 
-**Why not Cal.com's built-in Stripe integration:**
-- Requires a paid Cal.com plan
-- Sends the user off-site to a Cal.com-hosted payment page mid-flow, breaking the branded experience
-- We lose control at the most trust-sensitive moment
+### How the toggle works
 
-**The approach: Stripe Elements inline in the wizard**
+Payments are controlled entirely by environment variables — no code changes needed to enable or disable them.
 
-Add a payment step between "Details" and "Confirmed". The Cal.com booking is only created *after* payment succeeds — so a booking is never created without payment.
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | `price` in `config.ts` | Result |
+|---|---|---|
+| Not set | anything | Payment step **skipped**. Booking goes straight to Cal.com. Original 5-step flow. |
+| Set (test or live) | `null` | Payment step **shown** in **dev/mock mode** — bypass button, no real charge. |
+| Set (test or live) | a number (cents) | Payment step **shown** with real Stripe Elements form. |
 
-```
-Step 1: Session type
-Step 2: Date
-Step 3: Time
-Step 4: Your details (name, email, notes)
-Step 5: Payment  ← NEW (Stripe Elements card form)
-Step 6: Confirmed
-```
+To disable payments at any time: remove `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` from your environment and redeploy. The step disappears from the wizard with no code changes.
 
-### Security model (important context)
+### Security model
 
-**HTTPS:** Netlify provisions free SSL/TLS via Let's Encrypt automatically when a custom domain is attached. All traffic is HTTPS by default.
+**Card data:** Stripe Elements renders the card form inside a Stripe-hosted `<iframe>`. Card numbers, CVV, and expiry go directly from the user's browser to Stripe's servers — they never touch our server or our code. We only ever receive a `PaymentIntent` ID. This is PCI-DSS compliant out of the box.
 
-**Card data:** Stripe Elements renders the card form inside a Stripe-hosted `<iframe>`. Card numbers, CVV, and expiry go directly from the user's browser to Stripe's servers — they never touch our server, our code, or our database. We only ever receive a `PaymentIntent` ID (a token). This makes the integration PCI-DSS compliant out of the box.
+**Server-side verification:** The bookings route retrieves the `PaymentIntent` from Stripe and confirms `status === 'succeeded'` before creating the Cal.com booking. The client cannot fake a successful payment.
 
-**Localhost testing:** Stripe explicitly allows `localhost` for test mode, so the full payment flow can be built and verified before a domain is purchased.
+**HTTPS:** Netlify provisions free SSL/TLS via Let's Encrypt automatically when a custom domain is attached.
 
-### Proposed server-side flow
+### Server-side flow (implemented)
 
 ```
-1. User completes steps 1–4 (session, date, time, details)
-2. Client requests a PaymentIntent from our server
-   POST /api/stripe/payment-intent { sessionId, amount }
-3. Server creates PaymentIntent via Stripe API, returns { clientSecret }
-4. Client mounts Stripe Elements using clientSecret
-5. User enters card details (goes directly to Stripe, never our server)
-6. Stripe confirms payment, returns success to client
-7. Client calls our bookings route with paymentIntentId
-8. Server verifies payment succeeded with Stripe (don't trust the client)
-9. Server creates Cal.com booking
-10. Confirmation shown to user
+1. User completes steps 1–4: session, date, time, details
+2. Wizard advances to payment step
+3. Client POSTs to /api/stripe/payment-intent { sessionId }
+4. Server looks up session price from config, creates PaymentIntent via Stripe API
+5. Server returns { clientSecret } to client
+6. Client mounts Stripe Elements using clientSecret
+7. User enters card details → go directly to Stripe, never our server
+8. Stripe confirms payment, returns paymentIntent.id to client
+9. Client POSTs to /api/cal/bookings with paymentIntentId
+10. Server retrieves PaymentIntent from Stripe, verifies status === 'succeeded'
+11. Server creates Cal.com booking
+12. Confirmation shown to user
 ```
 
-### Files to create
+---
+
+### Testing locally
+
+**1. Get Stripe test keys**
+
+Log into [dashboard.stripe.com](https://dashboard.stripe.com) → **Developers → API Keys**. Confirm the toggle in the top-left reads **Test mode**. Copy:
+- Publishable key: `pk_test_...`
+- Secret key: `sk_test_...` (click Reveal)
+
+**2. Add to `.env.local`**
 
 ```
-src/modules/booking/
-  components/
-    StepPayment.tsx              ← Stripe Elements card form
-  hooks/
-    usePaymentIntent.ts          ← fetches clientSecret from our API
-src/app/api/stripe/
-  payment-intent/route.ts        ← creates Stripe PaymentIntent server-side
+STRIPE_SECRET_KEY=sk_test_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
 ```
 
-### Files to update
+Restart the dev server after — Next.js doesn't hot-reload env changes.
 
-```
-src/modules/booking/
-  types.ts                       ← add payment step to BookingStep, add price to SessionType
-  config.ts                      ← add price per session type (need prices from Tara-Maria)
-  components/BookingWidget.tsx   ← insert payment step into wizard flow
-  hooks/useBooking.ts            ← accept paymentIntentId, pass to bookings route
-src/app/api/cal/
-  bookings/route.ts              ← verify Stripe payment before creating Cal.com booking
-```
+**3. Set at least one price in `config.ts`**
 
-### New env vars needed
+Until Tara-Maria confirms pricing, add a placeholder in cents on one session to test the real Stripe form:
 
-```
-STRIPE_SECRET_KEY=sk_live_...     # Stripe dashboard → Developers → API Keys (server-side only)
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...  # safe to expose to browser
+```ts
+// src/modules/booking/config.ts
+{ id: 'sound-healing', ..., price: 15000 }  // $150 placeholder
 ```
 
-Both need to be added to `.env.local` and Netlify environment variables.
-Use `sk_test_` / `pk_test_` keys during development, `sk_live_` / `pk_live_` in production.
+Without a price, the payment step shows a dev-mode bypass button instead of the real form (which is fine for flow testing, but won't test the actual Stripe integration).
 
-### Before starting
+**4. Test with Stripe test cards**
 
+| Card number | Result |
+|---|---|
+| `4242 4242 4242 4242` | Payment succeeds |
+| `4000 0000 0000 9995` | Insufficient funds (decline) |
+| `4000 0025 0000 3155` | Requires 3D Secure authentication |
+
+Expiry: any future date. CVC: any 3 digits. ZIP: any 5 digits.
+
+After a successful test payment: check **Stripe dashboard → Test mode → Payments** to confirm the charge appears, and **Cal.com dashboard** to confirm the booking was created.
+
+---
+
+### Testing on Netlify (before production)
+
+**Option A — Branch deploy (recommended)**
+
+1. Push `booking-module` to origin
+2. In Netlify: **Site → Environment Variables**, add `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` using test keys
+3. In Netlify: **Deploys → Branch deploys**, enable `booking-module` to get a preview URL
+4. Test the full flow on the preview URL with test cards
+5. Verify charges in Stripe (test mode) and bookings in Cal.com
+
+**Option B — Test on the live test domain**
+
+Merge `booking-module` into `main`, add the test env vars to Netlify, and verify on the test domain before attaching a real custom domain.
+
+---
+
+### Going to production
+
+- [x] Confirm pricing with Tara-Maria → update `price:` (cents) for all four session types in `config.ts`
 - [ ] Confirm Tara-Maria has a Stripe account (or set one up for the business)
-- [ ] Get pricing for all four session types
-- [ ] Add Stripe publishable + secret keys to `.env.local` and Netlify
-- [ ] Install Stripe packages: `npm install stripe @stripe/stripe-js @stripe/react-stripe-js`
+- [ ] In Stripe dashboard → switch to **Live mode** → copy `sk_live_...` and `pk_live_...`
+- [ ] In Netlify → replace test keys with live keys → redeploy
+- [ ] Verify one real booking end-to-end before announcing
+
+### Env vars (both environments)
+
+```
+STRIPE_SECRET_KEY=             # sk_test_... locally / sk_live_... in production (server-side only)
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=   # pk_test_... locally / pk_live_... in production
+```
 
 ---
 

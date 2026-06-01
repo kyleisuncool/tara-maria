@@ -11,6 +11,7 @@ export interface SessionType {
   formatLabel: string
   desc: string
   calEventTypeId: number | null  // null until Cal.com event types are configured
+  price: number | null           // cents (USD); null until pricing is confirmed
 }
 
 // ─── Availability ─────────────────────────────────────────────────────────────
@@ -32,6 +33,7 @@ export interface BookingRequest {
   email: string
   notes?: string
   timezone: string
+  paymentIntentId?: string
 }
 
 export interface BookingResponse {
@@ -49,7 +51,7 @@ export interface BookingResponse {
 
 // ─── Wizard State ─────────────────────────────────────────────────────────────
 
-export type BookingStep = 'session' | 'date' | 'time' | 'info' | 'confirmed'
+export type BookingStep = 'session' | 'date' | 'time' | 'info' | 'payment' | 'confirmed'
 
 export interface BookingState {
   step: BookingStep

@@ -67,6 +67,11 @@ export function StepSessionPicker({ selected, onSelect }: Props) {
                     isSelected ? 'text-parchment/60' : 'text-earth/35',
                   ].join(' ')}
                 >
+                  {session.price !== null && (
+                    <div className={['font-medium mb-0.5', isSelected ? 'text-parchment/80' : 'text-earth/60'].join(' ')}>
+                      ${Math.floor(session.price / 100)}
+                    </div>
+                  )}
                   <div>{session.duration} min</div>
                   <div className="mt-0.5">{session.formatLabel}</div>
                 </div>

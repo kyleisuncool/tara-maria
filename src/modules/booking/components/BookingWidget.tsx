@@ -1,13 +1,14 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { SESSION_TYPES } from '../config'
+import { SESSION_TYPES, PAYMENTS_ENABLED } from '../config'
 import { useBooking } from '../hooks/useBooking'
 import { useAvailability } from '../hooks/useAvailability'
 import { StepSessionPicker } from './StepSessionPicker'
 import { StepDatePicker } from './StepDatePicker'
 import { StepTimePicker } from './StepTimePicker'
 import { StepInfoForm } from './StepInfoForm'
+import { StepPayment } from './StepPayment'
 import { StepConfirmation } from './StepConfirmation'
 import type { BookingStep, SessionType, BookingResponse } from '../types'
 
@@ -27,6 +28,7 @@ const WIZARD_STEPS: { key: BookingStep; label: string }[] = [
   { key: 'date', label: 'Date' },
   { key: 'time', label: 'Time' },
   { key: 'info', label: 'Details' },
+  ...(PAYMENTS_ENABLED ? [{ key: 'payment' as BookingStep, label: 'Payment' }] : []),
   { key: 'confirmed', label: 'Confirmed' },
 ]
 
@@ -34,6 +36,7 @@ const PREV_STEP: Partial<Record<BookingStep, BookingStep>> = {
   // 'session' has no back
   time: 'date',
   info: 'time',
+  payment: 'info',
   // 'date' back depends on whether session was pre-selected (set dynamically below)
 }
 
@@ -62,6 +65,7 @@ export function BookingWidget({ initialSessionId, onClose }: Props) {
   const [form, setForm] = useState({ name: '', email: '', notes: '' })
   const [timezone, setTimezone] = useState('UTC')
   const [result, setResult] = useState<BookingResponse | null>(null)
+  const [paymentIntentId, setPaymentIntentId] = useState<string | null>(null)
 
   // ── Calendar month (shared between date + time steps) ──────────────────────
   const [currentMonth, setCurrentMonth] = useState(() => toMonthStr(new Date()))
@@ -137,7 +141,7 @@ export function BookingWidget({ initialSessionId, onClose }: Props) {
     setStep('info')
   }
 
-  async function handleSubmit() {
+  async function submitBooking(intentId?: string) {
     if (!session || !slot) return
     const booking = await submit({
       eventTypeId: session.calEventTypeId,
@@ -146,11 +150,25 @@ export function BookingWidget({ initialSessionId, onClose }: Props) {
       email: form.email,
       notes: form.notes,
       timezone,
+      ...(intentId ? { paymentIntentId: intentId } : {}),
     })
     if (booking) {
       setResult(booking)
       setStep('confirmed')
     }
+  }
+
+  function handleInfoSubmit() {
+    if (PAYMENTS_ENABLED) {
+      setStep('payment')
+    } else {
+      submitBooking()
+    }
+  }
+
+  function handlePaymentSuccess(intentId: string) {
+    setPaymentIntentId(intentId)
+    submitBooking(intentId)
   }
 
   // ── Progress dots ─────────────────────────────────────────────────────────────
@@ -270,9 +288,17 @@ export function BookingWidget({ initialSessionId, onClose }: Props) {
               timezone={timezone}
               values={form}
               onChange={setForm}
-              onSubmit={handleSubmit}
+              onSubmit={handleInfoSubmit}
               loading={submitLoading}
               error={submitError}
+              paymentsEnabled={PAYMENTS_ENABLED}
+            />
+          )}
+
+          {step === 'payment' && session && PAYMENTS_ENABLED && (
+            <StepPayment
+              session={session}
+              onSuccess={handlePaymentSuccess}
             />
           )}
 

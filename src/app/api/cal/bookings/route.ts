@@ -1,8 +1,10 @@
 import type { NextRequest } from 'next/server'
+import Stripe from 'stripe'
 import type { BookingRequest, BookingResponse } from '@/modules/booking/types'
 
 const CAL_API_BASE = 'https://api.cal.com/v2'
 const CAL_API_KEY = process.env.CAL_API_KEY
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
 
 // ─── Mock booking (used when CAL_API_KEY is not set) ──────────────────────────
 
@@ -30,6 +32,22 @@ export async function POST(request: NextRequest) {
 
   if (!body.name || !body.email || !body.startTime || !body.timezone) {
     return Response.json({ error: 'name, email, startTime, and timezone are required' }, { status: 400 })
+  }
+
+  // ── Stripe payment verification ────────────────────────────────────────────
+  // When Stripe is configured and a paymentIntentId is provided, verify
+  // that the payment succeeded before creating the Cal.com booking.
+  if (STRIPE_SECRET_KEY && body.paymentIntentId) {
+    try {
+      const stripe = new Stripe(STRIPE_SECRET_KEY)
+      const intent = await stripe.paymentIntents.retrieve(body.paymentIntentId)
+      if (intent.status !== 'succeeded') {
+        return Response.json({ error: 'Payment has not been completed' }, { status: 402 })
+      }
+    } catch (err) {
+      console.error('[/api/cal/bookings] Stripe verification error:', err)
+      return Response.json({ error: 'Could not verify payment' }, { status: 500 })
+    }
   }
 
   // ── Stub mode ──────────────────────────────────────────────────────────────

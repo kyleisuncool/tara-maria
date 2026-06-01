@@ -18,6 +18,7 @@ interface Props {
   onSubmit: () => void
   loading: boolean
   error: string | null
+  paymentsEnabled: boolean
 }
 
 function formatDateTime(slot: string, timezone: string): string {
@@ -45,6 +46,7 @@ export function StepInfoForm({
   onSubmit,
   loading,
   error,
+  paymentsEnabled,
 }: Props) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -67,6 +69,7 @@ export function StepInfoForm({
       </h2>
       <p className="text-earth/55 text-sm leading-relaxed mb-8">
         {session.name} · {formatDateTime(slot, timezone)}
+        {session.price !== null ? ` · $${Math.floor(session.price / 100)}` : null}
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-5">
@@ -133,7 +136,11 @@ export function StepInfoForm({
               : 'bg-forest text-parchment hover:bg-[oklch(33%_0.08_170)]',
           ].join(' ')}
         >
-          {loading ? 'Confirming your session…' : 'Confirm booking'}
+          {loading
+          ? 'Saving…'
+          : paymentsEnabled
+          ? 'Continue to payment →'
+          : 'Confirm booking'}
         </button>
       </form>
 
