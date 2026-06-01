@@ -3,11 +3,16 @@ import Footer from './components/Footer'
 import BotanicalSprig from './components/BotanicalSprig'
 import Link from 'next/link'
 import Image from 'next/image'
+import { SESSION_TYPES } from '@/modules/booking/config'
 
 export const metadata = {
   title: 'Tara-Maria — Sound Healer & Hypnotherapist',
   description: 'Sound healing, hypnotherapy, and Reiki from a registered nurse with 13 years in healthcare. Evidence-grounded healing for those navigating burnout, recovery, and self-discovery.',
 }
+
+const sessionPriceByNum = Object.fromEntries(
+  SESSION_TYPES.map((s) => [s.num, s.price])
+)
 
 export default function Home() {
   return (
@@ -114,7 +119,14 @@ export default function Home() {
               <div key={num} className="py-9 md:py-11 flex flex-col md:flex-row md:items-start gap-4 md:gap-14">
                 <span className="font-display text-teal/40 text-sm tracking-[0.12em] shrink-0 md:w-8 pt-1">{num}</span>
                 <div className="flex-1">
-                  <h3 className="font-display text-forest text-xl md:text-2xl tracking-tight mb-3">{name}</h3>
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+                    <h3 className="font-display text-forest text-xl md:text-2xl tracking-tight">{name}</h3>
+                    {sessionPriceByNum[num] !== null && (
+                      <span className="text-earth/35 text-xs tracking-[0.12em] uppercase">
+                        ${Math.floor(sessionPriceByNum[num]! / 100)}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-earth/65 text-sm md:text-base leading-relaxed max-w-xl">{desc}</p>
                 </div>
                 <div className="shrink-0">

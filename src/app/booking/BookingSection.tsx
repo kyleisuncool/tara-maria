@@ -21,7 +21,7 @@ export function BookingSection() {
       {/* ── Session list ── */}
       <section className="px-8 md:px-16 pb-20 md:pb-28">
         <div className="max-w-5xl divide-y divide-earth/10">
-          {SESSION_TYPES.map(({ id, num, name, duration, formatLabel, desc }) => (
+          {SESSION_TYPES.map(({ id, num, name, duration, formatLabel, desc, price }) => (
             <div
               key={id}
               className="py-10 md:py-12 flex flex-col md:flex-row md:items-start gap-5 md:gap-16"
@@ -36,6 +36,7 @@ export function BookingSection() {
                   </h2>
                   <span className="text-earth/35 text-xs tracking-[0.12em] uppercase">
                     {duration} min &middot; {formatLabel}
+                    {price !== null ? ` · $${Math.floor(price / 100)}` : null}
                   </span>
                 </div>
                 <p className="text-earth/65 text-sm md:text-base leading-relaxed max-w-xl">
