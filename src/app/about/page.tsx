@@ -3,10 +3,11 @@ import Footer from '../components/Footer'
 import BotanicalSprig from '../components/BotanicalSprig'
 import Link from 'next/link'
 import Image from 'next/image'
+import Testimonial from '../components/Testimonial'
 
 export const metadata = {
   title: 'About — Tara-Maria',
-  description: 'A registered nurse and cancer survivor who found sound healing, hypnotherapy, and Reiki through her own recovery and now brings that experience to her practice.',
+  description: 'A registered nurse and sound healing, hypnotherapy, and Reiki practitioner sharing what works for chronic illness, burnout, and sharing that experience with others.',
 }
 
 export default function About() {
@@ -24,7 +25,7 @@ export default function About() {
             I meet you<br />where you are.
           </h1>
           <p className="text-earth/65 text-base md:text-lg leading-relaxed max-w-md">
-            My name is Tara-Maria. I am a registered nurse, a cancer survivor, and a healer. Those three things are not separate. They are the same story.
+            My name is Tara-Maria. I am a registered nurse, and a healer who has walked her own path through burnout, chronic illness, and cancer to find what actually works. Those things are not separate. They are the same story.
           </p>
         </div>
 
@@ -46,21 +47,43 @@ export default function About() {
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-8">My story</p>
           <div className="space-y-6 text-earth/70 text-base md:text-lg leading-relaxed">
             <p>
-              I have been a registered nurse for thirteen years. I believe in evidence. I believe in protocol. I understand, at a clinical level, how the body responds to stress, illness, and intervention. And then I was diagnosed with cancer, and found myself on the other side of the bed.
+              Call it magic, call it tuning into the body&rsquo;s natural state of health and well-being. Maybe it is the power of intention, or the subtle and effective process of entrainment. Whatever model fits your definition and understanding of the subtle forces that influence every cell in your body&hellip; the fact is that sound and energy healing are more than a &ldquo;woo-woo&rdquo; practice.
             </p>
             <p>
-              What I encountered in that experience was not a failure of medicine. Medicine did its job. What I found was a gap between what clinical care addresses and what a person actually needs to heal. The nervous system. The fear that lives in the body long after treatment ends. The sense of self that quietly dissolves in the middle of it all.
+              They&rsquo;re powerful tools in the handbook we deserve to have instructions to coming into this complex human form.
             </p>
             <p>
-              That gap is where I started looking. I came to sound healing, hypnotherapy, and Reiki not as someone searching for something spiritual, but as a clinician looking for evidence. I found it. And I found that these modalities worked in ways I could not dismiss, in a body I know intimately.
+              I have been a registered nurse for thirteen years. I believe in evidence. I believe in protocol. I understand, at a clinical level, how the body responds to stress, illness, and intervention.
             </p>
             <p>
-              I built this practice from that place. It sits at the intersection of what clinical healthcare gets right and what it misses. The body holds what the mind has not yet processed. Healing is not linear, not performative, and rarely what we expect it to be.
+              As a nurse, and as a human well into her healing journey, I&rsquo;ve spent the last five years studying the practices and healing modalities that make the difference, and am honored to walk alongside people like you as they access their most healthful and aligned states of being.
             </p>
             <p>
-              This is not a practice about fixing you. It is about returning to what was always there.
+              Modern scientists have proven that sound has an incredible and powerful impact on cells and organisms at their foundation. Sound has been shown to be able to penetrate organs and root out disfunction. We have seen that dis-ease within the body more often than not has a soul-deep energetic root that transcends the symptoms or injury.
+            </p>
+            <p>
+              Through sound and energy healing practices &mdash; Reiki, Breathwork, EFT, and hypnosis &mdash; I have been able to guide clients to heal physical pain, catalyze the body&rsquo;s natural healing capabilities, release traumas, and close energetic and mental loops of past life and epigenetic origins.
+            </p>
+            <p>
+              Through my own journey with gallstones, AuDHD burnout, adrenal fatigue, and even cancer, I found that these modalities work in ways impossible to dismiss in a body I know intimately.
+            </p>
+            <p>
+              This practice is built from that place. It sits at the intersection of what clinical healthcare gets right and where protocols leave gaps. The body holds what the mind has delayed processing. Healing is not linear, not performative, and rarely what we expect it to be.
+            </p>
+            <p>
+              Healing is returning to what was there before something convinced you that you were ever broken to begin with.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── Testimonial ── */}
+      <section className="px-8 md:px-16 py-16 md:py-20">
+        <div className="max-w-2xl">
+          <Testimonial
+            quote="I&rsquo;m so thankful for this work, truly a miracle gift assisting the body in doing what it does best: heal."
+            name="Kari"
+          />
         </div>
       </section>
 
@@ -148,6 +171,16 @@ export default function About() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Testimonial ── */}
+      <section className="px-8 md:px-16 py-16 md:py-20">
+        <div className="max-w-2xl">
+          <Testimonial
+            quote="I felt fully seen and accepted, and like I could speak honestly without any fear of judgement or shame."
+            name="Cynthia"
+          />
         </div>
       </section>
 

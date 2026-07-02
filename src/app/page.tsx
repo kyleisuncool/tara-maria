@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import BotanicalSprig from './components/BotanicalSprig'
 import Link from 'next/link'
 import Image from 'next/image'
+import Testimonial from './components/Testimonial'
 import { SESSION_TYPES } from '@/modules/booking/config'
 
 export const metadata = {
@@ -140,6 +141,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Testimonial ── */}
+      <section className="bg-cream px-8 md:px-16 py-20 md:py-24">
+        <div className="max-w-2xl mx-auto">
+          <Testimonial
+            quote="I felt so held&hellip; I loved it so much, and it was such a sweet group."
+            name="Abigail, group sound healing"
+            center
+          />
         </div>
       </section>
 

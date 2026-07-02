@@ -1,5 +1,6 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Testimonial from '../components/Testimonial'
 import Link from 'next/link'
 import { BookingSection } from './BookingSection'
 
@@ -14,7 +15,7 @@ export default function Booking() {
       <Nav />
 
       {/* ── Header ── */}
-      <section className="px-8 md:px-16 pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="px-8 md:px-16 pt-20 pb-10 md:pt-28 md:pb-12">
         <div className="max-w-3xl">
           <p className="text-teal text-xs tracking-[0.22em] uppercase mb-7">Book a session</p>
           <h1 className="font-display text-forest text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.04] tracking-tight mb-8">
@@ -23,6 +24,16 @@ export default function Booking() {
           <p className="text-earth/65 text-base md:text-lg leading-relaxed max-w-md">
             Sessions are available remotely via Zoom and in person. All sessions are one hour unless otherwise noted.
           </p>
+        </div>
+      </section>
+
+      {/* ── Testimonial ── */}
+      <section className="px-8 md:px-16 pb-16 md:pb-20">
+        <div className="max-w-md">
+          <Testimonial
+            quote="What a gifted healer! Maria is a talented reiki practitioner and was born to do this work."
+            name="Angela"
+          />
         </div>
       </section>
 
